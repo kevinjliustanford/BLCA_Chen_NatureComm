@@ -1,0 +1,31 @@
+#Code used to run CellRanger after downloading. Inside the directory, I have the R1 and R2 FASTQ file (SRR12603782PN8_S1_L001_R1_001.fastq, SRR12603782PN8_S1_L001_R2_001.fastq)
+
+export PATH=/vault6/kjliu1/Chen2020NatureComm_BLCA/cellranger-7.1.0:$PATH
+
+cellranger count --id=SRR12603782 \
+                 --transcriptome=/vault6/kjliu1/Chen2020NatureComm_BLCA/refdata-gex-GRCh38-2020-A \
+                 --fastqs=/vault6/kjliu1/Chen2020NatureComm_BLCA/raw/SRR12603782_urinary_bladder_cancer_fresh_sample_of_patient_number_08/ \
+		 --localcores=16 \
+		 --localmem=12\
+		 --chemistry=SC3Pv2 
+
+#this is the error message that I got from running CellRanger
+
+[error] Pipestance failed. Error log at:
+SRR12603782/SC_RNA_COUNTER_CS/SC_MULTI_CORE/MULTI_GEM_WELL_PROCESSOR/COUNT_GEM_WELL_PROCESSOR/_BASIC_SC_RNA_COUNTER/_MATRIX_COMPUTER/MAKE_SHARD/fork0/chnk0-u3d40c6c72d/_errors
+
+Log message:
+ERROR: There were no reads to process. Please check whether the read lengths in the input fastqs satisfy the minumum read length requirements for the chemistry.
+
+Waiting 6 seconds for UI to do final refresh.
+Pipestance failed. Use --noexit option to keep UI running after failure.
+
+2023-07-30 16:20:59 Shutting down.
+2023-07-30 16:21:00 [jobmngr] Highest memory usage observed: {
+  "rss": 2845216768,
+  "shared": 47972352,
+  "vmem": 5959204864,
+  "text": 34447360,
+  "stack": 3646779392,
+  "proc_count": 77
+}
